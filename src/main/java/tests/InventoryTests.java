@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import pageObjects.InventoryPage;
 import pageObjects.LoginPage;
 import pageObjects.ProductPage;
+import utils.BrowserUtils;
 
 import java.util.List;
 
@@ -22,8 +23,7 @@ public class InventoryTests {
 
     @BeforeEach
     void setUp() {
-        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(false);
-        browser = Playwright.create().chromium().launch(launchOptions);
+        browser = BrowserUtils.initializeBrowser();
         page = browser.newPage();
         page.navigate("https://www.saucedemo.com");
         loginPage = new LoginPage(page);

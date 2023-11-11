@@ -7,6 +7,7 @@ import com.microsoft.playwright.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.BrowserUtils;
 
 public class CheckoutTests {
 
@@ -21,8 +22,7 @@ public class CheckoutTests {
 
     @BeforeEach
     void setUp() {
-        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(true);
-        browser = Playwright.create().chromium().launch(launchOptions);
+        browser = BrowserUtils.initializeBrowser();
         page = browser.newPage();
         page.navigate("https://www.saucedemo.com");
         loginPage = new LoginPage(page);

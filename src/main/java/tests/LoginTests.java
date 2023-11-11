@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pageObjects.InventoryPage;
 import pageObjects.LoginPage;
+import utils.BrowserUtils;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -19,8 +20,7 @@ public class LoginTests {
 
     @BeforeEach
     void setUp() {
-        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(false);
-        browser = Playwright.create().chromium().launch(launchOptions);
+        browser = BrowserUtils.initializeBrowser();
         page = browser.newPage();
         page.navigate("https://www.saucedemo.com");
         loginPage = new LoginPage(page);
