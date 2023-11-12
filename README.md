@@ -9,8 +9,11 @@ Test framework implementation for 5 most important test cases for https://www.sa
 ## Dependencies
 
 java - java version 20
+
 playwright - version 1.39.0
+
 junit-jupiter-api - version 5.10.0
+
 junit-jupiter-engine - version 5.10.0
 
 ## Usage
